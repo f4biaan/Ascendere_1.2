@@ -1,0 +1,38 @@
+.unidad-container {
+    font-family: 'Neris', sans-serif;
+    color: #333;
+  }
+  
+  .nav-pills .nav-link {
+    color: #00ACC1; /* Color Turquesa */
+    border-radius: 0.25rem;
+  }
+  
+  .nav-pills .nav-link.active {
+    background-color: #00ACC1;
+    color: #fff;
+  }
+  
+  .display-5 {
+    font-weight: 700;
+    color: #00ACC1;
+  }
+  
+  .video-section img {
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .unidad-section .h4 {
+    cursor: pointer;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .unidad-section .collapse {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+  }
+  

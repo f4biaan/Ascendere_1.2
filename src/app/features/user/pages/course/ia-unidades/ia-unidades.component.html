@@ -1,0 +1,48 @@
+<div class="unidad-container">
+  <nav class="nav nav-pills mb-4">
+    <button class="nav-link" (click)="navigateTo('inicio')">INICIO</button>
+    <button class="nav-link" (click)="setActiveTab('unidad1')">Unidad 1</button>
+    <button class="nav-link" (click)="setActiveTab('unidad2')">Unidad 2</button>
+    <button class="nav-link" (click)="setActiveTab('unidad3')">Unidad 3</button>
+    <button class="nav-link" (click)="setActiveTab('unidad4')">Unidad 4</button>
+    <button class="nav-link" (click)="setActiveTab('unidad5')">Unidad 5</button>
+  </nav>
+
+  <div *ngIf="activeTab !== 'inicio'" class="unidad-content">
+    <h1 class="display-5">Contenido de {{ activeTab }}</h1>
+    <div class="video-section mb-4">
+      <img src="assets/images/placeholder-video.png" alt="Video Placeholder" class="img-fluid">
+      <p class="lead">Descripción del contenido de {{ activeTab }}...</p>
+    </div>
+    <div class="unidad-section mb-4">
+      <h2 (click)="toggleSection('objetivos')" class="h4">Objetivo de la unidad</h2>
+      <div *ngIf="sections['objetivos']" class="collapse show">
+        <p>Descripción del objetivo de {{ activeTab }}...</p>
+      </div>
+    </div>
+    <div class="unidad-section mb-4">
+      <h2 (click)="toggleSection('contenidos')" class="h4">Contenidos por abordar</h2>
+      <div *ngIf="sections['contenidos']" class="collapse" [class.show]="sections['contenidos']">
+        <p>Descripción de los contenidos de {{ activeTab }}...</p>
+      </div>
+    </div>
+    <div class="unidad-section mb-4">
+      <h2 (click)="toggleSection('conceptos')" class="h4">Conceptos básicos: Inteligencia artificial</h2>
+      <div *ngIf="sections['conceptos']" class="collapse" [class.show]="sections['conceptos']">
+        <p>Descripción de los conceptos de {{ activeTab }}...</p>
+      </div>
+    </div>
+    <div class="unidad-section mb-4">
+      <h2 (click)="toggleSection('actividades')" class="h4">Actividades de aprendizaje práctico</h2>
+      <div *ngIf="sections['actividades']" class="collapse" [class.show]="sections['actividades']">
+        <p>Descripción de las actividades de {{ activeTab }}...</p>
+      </div>
+    </div>
+    <div class="unidad-section">
+      <h2 (click)="toggleSection('evaluacion')" class="h4">Evaluación</h2>
+      <div *ngIf="sections['evaluacion']" class="collapse" [class.show]="sections['evaluacion']">
+        <p>Descripción de la evaluación de {{ activeTab }}...</p>
+      </div>
+    </div>
+  </div>
+</div>
