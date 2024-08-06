@@ -1,0 +1,34 @@
+<div class="course-list">
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">Inducción</h5>
+    <p class="card-text">Introducción básica a la plataforma y su uso.</p>
+    <a (click)="enterCourse('induccion')" class="btn btn-primary">Entrar</a>
+  </div>
+</div>
+</div>
+<div class="course-list">
+<div class="card mb-4 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">Creación de Contenidos Educativos Utilizando IA</h5>
+    <p class="card-text">
+      Aprende a crear contenidos educativos con inteligencia artificial.
+    </p>
+    <a (click)="enterCourse('ia')" class="btn btn-primary">Entrar</a>
+  </div>
+</div>
+</div>
+
+<div class="course-list">
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title">Metodologias activas con tecnologia </h5>
+      <p class="card-text">
+        Aprende a crear contenidos educativos con inteligencia artificial.
+      </p>
+      <a (click)="enterCourse('ia')" class="btn btn-primary">Entrar</a>
+    </div>
+  </div>
+  </div>
+
+<pre>{{ courses | json }}</pre>

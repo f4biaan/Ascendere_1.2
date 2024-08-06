@@ -1,0 +1,50 @@
+.course-list {
+  display: flex;
+  flex-wrap: wrap; /* Permitir que los elementos se ajusten a la siguiente línea */
+  gap: 20px; /* Espacio entre las tarjetas */
+  justify-content: center; /* Centrar las tarjetas en el contenedor */
+  padding: 20px;
+}
+
+.card {
+  width: calc(25% - 20px); /* Ajustar el ancho de las tarjetas */
+  box-sizing: border-box;
+}
+
+/* Mantener el estilo existente */
+.course-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+h2 {
+  margin: 0 0 10px;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}

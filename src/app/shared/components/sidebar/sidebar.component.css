@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.sidebar {
+  height: 100%;
+  background-color: #f8f9fa; /* Color de fondo */
+  padding: 10px; /* Padding para el contenido */
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background-color: #e9ecef; /* Color de fondo al pasar el mouse */
+}
