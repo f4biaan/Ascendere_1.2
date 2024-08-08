@@ -6,16 +6,18 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { filter } from 'rxjs';
 import { Router, NavigationEnd, Event } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, SidebarComponent, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   title = 'Ascendere1.2';
-  showHeaderAndSidebar: boolean = true;
+  showHeader: boolean = true;
+  showSidebar: boolean = false;
 
   constructor(private firestore: AngularFirestore, private router: Router) {}
 
@@ -30,7 +32,27 @@ export class AppComponent implements OnInit {
       )
       .subscribe((event: NavigationEnd) => {
         // Actualizar la visibilidad del header y sidebar basado en la ruta actual
-        this.showHeaderAndSidebar = event.urlAfterRedirects !== '/login';
+        this.showHeader = event.urlAfterRedirects !== '/login';
+        this.showSidebar = event.urlAfterRedirects === '/courselist';
+      
+
+        // Depuración
+        console.log('Ruta actual:', event.urlAfterRedirects);
+        console.log('Mostrar Header:', this.showHeader);
+        console.log('Mostrar Sidebar:', this.showSidebar);
       });
+
+    // Lógica existente para conectarse a Firestore
+    this.firestore
+      .collection('courses')
+      .snapshotChanges()
+      .subscribe(
+        (data) => {
+          console.log('Successfully connected to Firebase Firestore:', data);
+        },
+        (error) => {
+          console.error('Error connecting to Firebase Firestore:', error);
+        }
+      );
   }
 }
