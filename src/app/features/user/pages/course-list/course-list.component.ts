@@ -11,16 +11,15 @@ import { Course } from '../../../../core/interfaces/course';
   standalone: true,
   imports: [CommonModule],
 })
-export class CourseListComponent implements OnInit {
+export default class CourseListComponent implements OnInit {
   // private _coursesService = inject(CoursesService);
 
-  public courses: Course[] = [];
+  // public courses: Course[] = [];
 
   ngOnInit(): void {
-    this._coursesService.getCourses().subscribe((courses) => {
-      this.courses = courses;
-      // console.log(courses);
-    });
+    // this._coursesService.getCourses().subscribe((courses) => {
+    //   this.courses = courses;
+    // });
   }
 
   constructor(

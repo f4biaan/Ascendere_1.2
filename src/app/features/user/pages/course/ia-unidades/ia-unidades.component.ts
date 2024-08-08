@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
   templateUrl: './ia-unidades.component.html',
   styleUrls: ['./ia-unidades.component.css'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
-export class IaUnidadesComponent {
+export default class IaUnidadesComponent {
   activeTab: string = 'inicio';
   sections: { [key: string]: boolean } = {};
 

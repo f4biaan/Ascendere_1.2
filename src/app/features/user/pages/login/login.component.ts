@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent {
+export default class LoginComponent {
   constructor(private router: Router) {}
 
   onLogin() {

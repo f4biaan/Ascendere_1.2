@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule]
 })
-export class IAComponent {
+export default class IAComponent {
   activeTab: string = 'inicio';
 
   constructor(private router: Router) {}
