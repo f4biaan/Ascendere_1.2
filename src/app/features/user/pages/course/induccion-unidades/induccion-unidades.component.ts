@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router'; 
 
 @Component({
   selector: 'app-induccion-unidades',
@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule]
 })
-export default class InduccionUnidadesComponent {
+export class InduccionUnidadesComponent {
   activeTab: string = 'inicio';
   sections: { [key: string]: boolean } = {};
 

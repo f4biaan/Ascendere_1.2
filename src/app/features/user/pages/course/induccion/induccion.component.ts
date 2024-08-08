@@ -11,7 +11,7 @@ import { ProgressComponent } from '../../../components/progress/progress.compone
   standalone: true,
   imports: [CommonModule, RouterModule, ProgressComponent],
 })
-export default class InduccionComponent {
+export class InduccionComponent {
   activeTab: string = 'resultados'; // Inicializar con una pestaña de contenido
 
   constructor(private router: Router) {}
