@@ -10,6 +10,7 @@ export class ProgressComponent implements OnInit {
   dailyGoal: number = 75; 
   retention: number = 50;  
   courseProgress: number = 90; 
+  
 
   ngOnInit() {
     this.setProgressValues();

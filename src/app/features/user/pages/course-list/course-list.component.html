@@ -1,46 +1,60 @@
-<div class="course-list">
-<div class="card mb-4 shadow-sm">
-  <div class="card-body">
-    <h5 class="card-title">Inducción</h5>
-    <p class="card-text">Introducción básica a la plataforma y su uso.</p>
-    <a (click)="enterCourse('induccion')" class="btn btn-primary">Entrar</a>
-  </div>
-</div>
-</div>
-<div class="course-list">
-<div class="card mb-4 shadow-sm">
-  <div class="card-body">
-    <h5 class="card-title">Creación de Contenidos Educativos Utilizando IA</h5>
-    <p class="card-text">
-      Aprende a crear contenidos educativos con inteligencia artificial.
-    </p>
-    <a (click)="enterCourse('induccion')" class="btn btn-primary">Entrar</a>
-  </div>  
-</div>
-</div>
-
-<div class="course-list">
-  <div class="card mb-4 shadow-sm">
-    <div class="card-body">
-      <h5 class="card-title">Metodologias activas con tecnologia </h5>
-      <p class="card-text">
-        Aprende a crear contenidos educativos con inteligencia artificial.
-      </p>
-      <a (click)="enterCourse('ia')" class="btn btn-primary">Entrar</a>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="course-list max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
+    <img class="rounded-t-lg" src="assets/images/default-course.jpg" alt="Inducción">
+    <div class="p-5">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Inducción</h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Introducción básica a la plataforma y su uso.</p>
+      <a (click)="enterCourse('induccion')" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary hover:bg-primary-dark focus:ring-4 focus:outline-none focus:ring-primary-light dark:bg-primary dark:hover:bg-primary-dark dark:focus:ring-primary-light">
+        Entrar
+        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-7V7a1 1 0 112 0v4a1 1 0 01-1 1h-2.293l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4z" clip-rule="evenodd"></path>
+        </svg>
+      </a>
     </div>
-  </div>
   </div>
 
-  <div class="course-list">
-    <div class="card mb-4 shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title">Metodologias Stem con tecnologia  </h5>
-        <p class="card-text">
-          Aprende a crear contenidos eductivos con.
-        </p>
-        <a (click)="enterCourse('induccion')" class="btn btn-primary">Entrar</a>
-      </div>
+  <div class="course-list max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
+    <img class="rounded-t-lg" src="assets/images/default-course.jpg" alt="Creación de Contenidos Educativos Utilizando IA">
+    <div class="p-5">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Creación de Contenidos Educativos Utilizando IA</h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Aprende a crear contenidos educativos con inteligencia artificial.</p>
+      <a (click)="enterCourse('ia')" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary hover:bg-primary-dark focus:ring-4 focus:outline-none focus:ring-primary-light dark:bg-primary dark:hover:bg-primary-dark dark:focus:ring-primary-light">
+        Entrar
+        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-7V7a1 1 0 112 0v4a1 1 0 01-1 1h-2.293l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4z" clip-rule="evenodd"></path>
+        </svg>
+      </a>
     </div>
+  </div>
+
+  <div class="course-list max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
+    <img class="rounded-t-lg" src="assets/images/default-course.jpg" alt="Metodologias activas con tecnologia">
+    <div class="p-5">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Metodologias activas con tecnologia</h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Aprende a crear contenidos educativos con inteligencia artificial.</p>
+      <a (click)="enterCourse('metodologias')" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary hover:bg-primary-dark focus:ring-4 focus:outline-none focus:ring-primary-light dark:bg-primary dark:hover:bg-primary-dark dark:focus:ring-primary-light">
+        Entrar
+        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-7V7a1 1 0 112 0v4a1 1 0 01-1 1h-2.293l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4z" clip-rule="evenodd"></path>
+        </svg>
+      </a>
     </div>
+  </div>
+
+  <div class="course-list max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
+    <img class="rounded-t-lg" src="assets/images/default-course.jpg" alt="Metodologias Stem con tecnologia">
+    <div class="p-5">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Metodologias Stem con tecnologia</h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Aprende a crear contenidos educativos con tecnología.</p>
+      <a (click)="enterCourse('stem')" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary hover:bg-primary-dark focus:ring-4 focus:outline-none focus:ring-primary-light dark:bg-primary dark:hover:bg-primary-dark dark:focus:ring-primary-light">
+        Entrar
+        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-7V7a1 1 0 112 0v4a1 1 0 01-1 1h-2.293l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4z" clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
 
 <pre>{{ courses | json }}</pre>
+

@@ -1,50 +1,34 @@
-.course-list {
-  display: flex;
-  flex-wrap: wrap; /* Permitir que los elementos se ajusten a la siguiente línea */
-  gap: 20px; /* Espacio entre las tarjetas */
-  justify-content: center; /* Centrar las tarjetas en el contenedor */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
   padding: 20px;
 }
 
-.card {
-  width: calc(25% - 20px); /* Ajustar el ancho de las tarjetas */
-  box-sizing: border-box;
+.bg-primary {
+  background-color: #f8c300; /* Color principal de la marca */
 }
 
-/* Mantener el estilo existente */
-.course-card {
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 5px;
+.hover\:bg-primary-dark:hover {
+  background-color: #cc9f00; /* Color más oscuro para el hover */
 }
 
-h2 {
-  margin: 0 0 10px;
+.focus\:ring-primary-light:focus {
+  box-shadow: 0 0 0 4px rgba(248, 195, 0, 0.5); /* Sombra de foco con un color claro */
 }
 
-p {
-  margin: 0 0 10px;
+.text-primary {
+  color: #f8c300; /* Color del texto principal */
 }
 
-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+.dark\:bg-primary {
+  background-color: #f8c300; /* Mismo color para modo oscuro */
 }
 
-button:hover {
-  background-color: #0056b3;
+.dark\:hover\:bg-primary-dark:hover {
+  background-color: #cc9f00; /* Hover en modo oscuro */
 }
 
-.card {
-  border-radius: 10px;
-}
-
-.card-img-top {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+.dark\:focus\:ring-primary-light:focus {
+  box-shadow: 0 0 0 4px rgba(248, 195, 0, 0.5); /* Foco en modo oscuro */
 }

@@ -54,3 +54,24 @@
     margin-bottom: 5px; /* Espacio entre las líneas de texto */
   }
   
+
+  .progress-wrapper {
+    display: flex;
+    justify-content: flex-end; /* Mueve la barra al lado derecho */
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .circular-chart {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .percentages {
+    margin-left: 20px; /* Espacio entre la barra y el texto */
+  }
+  
+  .text-primary {
+    color: #f8c300; /* Color principal de la marca */
+  }
+  
