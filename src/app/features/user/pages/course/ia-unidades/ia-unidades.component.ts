@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule]
 })
-export class IaUnidadesComponent {
+export default class IaUnidadesComponent {
   activeTab: string = 'inicio';
   sections: { [key: string]: boolean } = {};
 

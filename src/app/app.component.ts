@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
@@ -19,7 +18,7 @@ export class AppComponent implements OnInit {
   showHeader: boolean = true;
   showSidebar: boolean = false;
 
-  constructor(private firestore: AngularFirestore, private router: Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     // Suscribirse a los eventos del router para detectar cambios en la navegación
@@ -33,26 +32,13 @@ export class AppComponent implements OnInit {
       .subscribe((event: NavigationEnd) => {
         // Actualizar la visibilidad del header y sidebar basado en la ruta actual
         this.showHeader = event.urlAfterRedirects !== '/login';
-        this.showSidebar = event.urlAfterRedirects === '/courselist';
-      
+        // this.showSidebar = event.urlAfterRedirects === '/courselist';
+        this.showSidebar = event.urlAfterRedirects.startsWith('/courselist');
 
         // Depuración
         console.log('Ruta actual:', event.urlAfterRedirects);
         console.log('Mostrar Header:', this.showHeader);
         console.log('Mostrar Sidebar:', this.showSidebar);
       });
-
-    // Lógica existente para conectarse a Firestore
-    this.firestore
-      .collection('courses')
-      .snapshotChanges()
-      .subscribe(
-        (data) => {
-          console.log('Successfully connected to Firebase Firestore:', data);
-        },
-        (error) => {
-          console.error('Error connecting to Firebase Firestore:', error);
-        }
-      );
   }
 }

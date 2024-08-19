@@ -1,7 +1,28 @@
 <div class="list-group">
-  <a [routerLink]="['/courselist']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action">Todos los cursos</a>
-  <a href="#" class="list-group-item list-group-item-action">Misionilidad</a>
-  <a href="#" class="list-group-item list-group-item-action">Innovación y Emprendimiento</a>
-  <a href="#" class="list-group-item list-group-item-action">Educación Digital</a>
-  <a href="#" class="list-group-item list-group-item-action">Investigación</a>
+  <a
+    (click)="onTypeChange('all')"
+    class="list-group-item list-group-item-action"
+    >Todos los cursos</a
+  >
+  <!-- <a [routerLink]="['/courselist']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action">Todos los cursos</a> -->
+  <a
+    (click)="onTypeChange('misionalidad')"
+    class="list-group-item list-group-item-action"
+    >Misionilidad</a
+  >
+  <a
+    (click)="onTypeChange('innovacion y emprendimiento')"
+    class="list-group-item list-group-item-action"
+    >Innovación y Emprendimiento</a
+  >
+  <a
+    (click)="onTypeChange('educacion digital')"
+    class="list-group-item list-group-item-action"
+    >Educación Digital</a
+  >
+  <a
+    (click)="onTypeChange('investigacion')"
+    class="list-group-item list-group-item-action"
+    >Investigación</a
+  >
 </div>

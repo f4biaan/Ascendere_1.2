@@ -1,4 +1,4 @@
-export interface Teachers {
+export interface Teacher {
   id: string; // it's the email, change if its necessary to set an id
   cv_summary: string;
   name: string;

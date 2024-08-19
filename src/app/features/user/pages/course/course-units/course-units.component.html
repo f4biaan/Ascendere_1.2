@@ -1,0 +1,111 @@
+<!-- <pre>{{ courseUnits() | json }}</pre> -->
+
+<div class="course-details container">
+  <nav class="nav nav-pills mb-4">
+    <button class="nav-link" (click)="navigateTo('inicio')">INICIO</button>
+    @for (tab of _coursesService.unitsTabs(); track $index) {
+    <button
+      class="nav-link"
+      [class.active]="activeTab === tab.id"
+      (click)="navigateTo(tab.id)"
+    >
+      {{ tab.headerName }}
+    </button>
+    }
+  </nav>
+
+  @if (courseTab() === 'inicio') {
+  <h1 class="display-4">Curso de {{ courseInicioPage().title }}</h1>
+
+  <app-progress></app-progress>
+
+  <div class="video-section mb-4">
+    <img
+      src="assets/images/placeholder-video.png"
+      alt="Video Placeholder"
+      class="img-fluid"
+    />
+    <p class="lead">
+      {{ courseInicioPage().introduction }}
+    </p>
+  </div>
+
+  <nav class="nav nav-tabs mb-4">
+    <button
+      class="nav-link"
+      [class.active]="activeTab === 'resultados'"
+      (click)="setActiveTab('resultados')"
+    >
+      Resultado de aprendizaje
+    </button>
+    <button
+      class="nav-link"
+      [class.active]="activeTab === 'metodologia'"
+      (click)="setActiveTab('metodologia')"
+    >
+      Metodología
+    </button>
+    <button
+      class="nav-link"
+      [class.active]="activeTab === 'perfil'"
+      (click)="setActiveTab('perfil')"
+    >
+      Perfil docente autor
+    </button>
+    <button
+      class="nav-link"
+      [class.active]="activeTab === 'criterios'"
+      (click)="setActiveTab('criterios')"
+    >
+      Criterios de evaluación
+    </button>
+    <button
+      class="nav-link"
+      [class.active]="activeTab === 'ruta'"
+      (click)="setActiveTab('ruta')"
+    >
+      Ruta de aprendizaje
+    </button>
+    <button
+      class="nav-link"
+      [class.active]="activeTab === 'avales'"
+      (click)="setActiveTab('avales')"
+    >
+      Avales
+    </button>
+  </nav>
+
+  <div class="tab-content">
+    <div *ngIf="activeTab === 'resultados'" class="tab-pane fade show active">
+      <h2 class="h4">Resultados de aprendizaje</h2>
+      <p>{{ courseInicioPage().learningOutcomes }}</p>
+    </div>
+    <div *ngIf="activeTab === 'metodologia'" class="tab-pane fade show active">
+      <h2 class="h4">Metodología</h2>
+      <p>{{ courseInicioPage().methodology }}</p>
+    </div>
+    <div *ngIf="activeTab === 'perfil'" class="tab-pane fade show active">
+      <h2 class="h4">Perfil docente autor</h2>
+      <!-- <p>{{ courseInicioPage().teachers | json }}</p> -->
+      @for (teacher of courseInicioPage().teachers; track $index) {
+      <p>{{ teacher.id }}</p>
+      }
+    </div>
+    <div *ngIf="activeTab === 'criterios'" class="tab-pane fade show active">
+      <h2 class="h4">Criterios de evaluación</h2>
+      <p>{{ courseInicioPage().assessmentCriteria }}</p>
+    </div>
+    <div *ngIf="activeTab === 'ruta'" class="tab-pane fade show active">
+      <h2 class="h4">Ruta de aprendizaje</h2>
+      <!-- <p>{{ courseInicioPage().learningOutcomes }}</p> -->
+      <p>Contenido relacionado a la ruta de aprendizaje...</p>
+    </div>
+    <div *ngIf="activeTab === 'avales'" class="tab-pane fade show active">
+      <h2 class="h4">Avales</h2>
+      <p>Contenido relacionado a los avales...</p>
+    </div>
+  </div>
+  } @else {
+  <app-units [dataUnit]="_coursesService.currentUnit" />
+  }
+</div>

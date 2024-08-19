@@ -5,11 +5,11 @@ header {
     padding: 10px;
     background-color: #f8f9fa;
   }
-  
+
   h1 {
     margin: 0;
   }
-  
+
   nav a {
     text-decoration: none;
     color: rgb(234, 171, 0);
@@ -18,7 +18,7 @@ header {
     font-weight: bold;
     font-size: 1.5em;
   }
-  
+
   .nav-link {
     margin-right: 10px;
   }

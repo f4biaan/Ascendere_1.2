@@ -1,17 +1,37 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.main-layout {
+  margin-top: 60px; /* Ajusta este valor según la altura de tu header */
+  /* position: static; */
+}
+
 .main-layout {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 app-sidebar {
+  position: fixed;
   flex: 0 0 250px; /* Ancho fijo para el sidebar */
-  height: 100vh; /* Altura completa de la ventana */
+  /* height: 100vh; */ /* Altura completa de la ventana */
+  height: calc(100vh - 62px); /* Restar el alto del header */
   background-color: #f8f9fa; /* Color de fondo */
   border-right: 1px solid #ddd; /* Borde derecho */
 }
 
 .content {
   flex: 1;
-  padding: 20px;
-  overflow-y: auto; /* Permitir scroll si el contenido es muy grande */
+  /* padding: 20px; */
+  /* overflow-y: auto; */ /* Permitir scroll si el contenido es muy grande */
+  /* i want to set with  without fixed app.sidebar */
+  width: 100%;
+  flex-grow: 1; /* Permite que el contenido ocupe todo el espacio disponible */
+
+  margin-left: 250px;
+  z-index: 999;
 }
