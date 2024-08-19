@@ -15,20 +15,40 @@ export class IaUnidadesComponent {
 
   constructor(private router: Router) {}
 
+  
   setActiveTab(tab: string) {
     this.activeTab = tab;
-    this.sections = {}; // Reinicia las secciones abiertas al cambiar de unidad
+    this.resetSections(); 
   }
 
+  
   toggleSection(section: string) {
     this.sections[section] = !this.sections[section];
   }
 
+  
   navigateTo(tab: string) {
     if (tab === 'inicio') {
       this.router.navigate(['/ia']);
     } else {
       this.setActiveTab(tab);
     }
+  }
+
+ 
+  private resetSections() {
+    this.sections = {
+      objetivos: false,
+      contenidos: false,
+      conceptos: false,
+      actividades: false,
+      evaluacion: false
+    };
+  }
+
+  
+  ngOnInit() {
+    
+    this.setActiveTab('unidad1');
   }
 }

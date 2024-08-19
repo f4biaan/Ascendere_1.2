@@ -1,77 +1,83 @@
 .progress-wrapper {
-    display: flex;
-    justify-content: center; /* Centra la barra de progreso */
-    align-items: center;
-    margin-top: 20px;
-    position: relative; /* Necesario para el posicionamiento absoluto de los textos */
-  }
-  
-  .circular-chart {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .circle-bg {
-    fill: none;
-    stroke: #eee;
-    stroke-width: 3.8;
-  }
-  
-  .circle {
-    fill: none;
-    stroke-width: 2.8;
-    stroke-linecap: round;
-  }
-  
-  .circle.red {
-    stroke: #FF3E3E;
-    stroke-dasharray: 75, 100; 
-  }
-  
-  .circle.yellow {
-    stroke: #FFC700;
-    stroke-dasharray: 50, 100; 
-    transform: rotate(-90deg);
-    transform-origin: center;
-  }
-  
-  .circle.blue {
-    stroke: #4CC3D9;
-    stroke-dasharray: 90, 100; /* Valor de porcentaje */
-    transform: rotate(-90deg);
-    transform-origin: center;
-  }
-  
-  .percentages {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px; /* Espacio entre los círculos y los textos */
-    font-family: sans-serif;
-    font-size: 1em;
-  }
-  
-  .percentages div {
-    margin-bottom: 5px; /* Espacio entre las líneas de texto */
-  }
-  
+  display: flex;
+  justify-content: flex-end; /* Mantiene la barra al lado derecho */
+  align-items: center;
+  margin-top: 20px;
+  position: relative; /* Necesario para el posicionamiento absoluto de los textos */
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para la barra de progreso */
+  border-radius: 10px; /* Bordes redondeados */
+}
 
-  .progress-wrapper {
-    display: flex;
-    justify-content: flex-end; /* Mueve la barra al lado derecho */
-    align-items: center;
-    margin-top: 20px;
+.circular-chart {
+  width: 200px;
+  height: 200px;
+  animation: fadeIn 1s ease-in-out; /* Animación de aparición */
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1.5s ease-out forwards; /* Animación de la barra de progreso */
+}
+
+.circle.red {
+  stroke: #FF3E3E;
+  stroke-dasharray: 75, 100; 
+}
+
+.circle.yellow {
+  stroke: #FFC700;
+  stroke-dasharray: 50, 100; 
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.circle.blue {
+  stroke: #4CC3D9;
+  stroke-dasharray: 90, 100; /* Valor de porcentaje */
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.percentages {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px; /* Espacio entre los círculos y los textos */
+  font-family: 'Neris', sans-serif; /* Usa una fuente moderna y legible */
+  font-size: 1em;
+  color: #333; /* Color del texto */
+}
+
+.percentages div {
+  margin-bottom: 5px; /* Espacio entre las líneas de texto */
+}
+
+.text-primary {
+  color: #f8c300; /* Color principal de la marca */
+}
+
+/* Animaciones */
+@keyframes progress {
+  0% {
+      stroke-dasharray: 0, 100;
   }
-  
-  .circular-chart {
-    width: 200px;
-    height: 200px;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: scale(0.9);
   }
-  
-  .percentages {
-    margin-left: 20px; /* Espacio entre la barra y el texto */
+  to {
+      opacity: 1;
+      transform: scale(1);
   }
-  
-  .text-primary {
-    color: #f8c300; /* Color principal de la marca */
-  }
-  
+}

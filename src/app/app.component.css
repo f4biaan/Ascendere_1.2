@@ -1,3 +1,4 @@
+/* Mantener el código existente */
 .main-layout {
   display: flex;
   height: 100vh;
@@ -14,4 +15,31 @@ app-sidebar {
   flex: 1;
   padding: 20px;
   overflow-y: auto; /* Permitir scroll si el contenido es muy grande */
+}
+
+/* Estilos adicionales para la superposición con desenfoque */
+.screen-blocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: none; /* Oculto por defecto */
+  justify-content: center;
+  align-items: center;
+}
+
+.screen-blocker.active {
+  display: flex; /* Mostrar solo cuando está activo */
+}
+
+.alert-message {
+  color: white;
+  font-size: 1.5rem;
+  background-color: rgba(255, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
 }
