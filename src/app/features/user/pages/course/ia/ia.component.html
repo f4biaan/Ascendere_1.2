@@ -1,57 +1,76 @@
-<div class="course-details container">
-  <nav class="nav nav-pills mb-4">
-    <button class="nav-link" (click)="setActiveTab('inicio')">INICIO</button>
-    <button class="nav-link" [class.active]="activeTab === 'unidad1'" (click)="setActiveTab('unidad1')">Unidad 1</button>
-    <button class="nav-link" [class.active]="activeTab === 'unidad2'" (click)="setActiveTab('unidad2')">Unidad 2</button>
-    <button class="nav-link" [class.active]="activeTab === 'unidad3'" (click)="setActiveTab('unidad3')">Unidad 3</button>
-    <button class="nav-link" [class.active]="activeTab === 'unidad4'" (click)="setActiveTab('unidad4')">Unidad 4</button>
-    <button class="nav-link" [class.active]="activeTab === 'unidad5'" (click)="setActiveTab('unidad5')">Unidad 5</button>
+<div class="course-details container mx-auto px-4">
+  <nav class="nav nav-pills mb-4 flex space-x-2">
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded" 
+            (click)="setActiveTab('inicio')">INICIO</button>
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded" 
+            [class.active]="activeTab === 'unidad1'" 
+            (click)="setActiveTab('unidad1')">Unidad 1</button>
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded" 
+            [class.active]="activeTab === 'unidad2'" 
+            (click)="setActiveTab('unidad2')">Unidad 2</button>
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded" 
+            [class.active]="activeTab === 'unidad3'" 
+            (click)="setActiveTab('unidad3')">Unidad 3</button>
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded" 
+            [class.active]="activeTab === 'unidad4'" 
+            (click)="setActiveTab('unidad4')">Unidad 4</button>
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded" 
+            [class.active]="activeTab === 'unidad5'" 
+            (click)="setActiveTab('unidad5')">Unidad 5</button>
   </nav>
 
-  <h1 class="display-4">Curso de Inteligencia Artificial</h1>
+  <h1 class="display-4 text-3xl font-bold text-teal-600 mb-4">Curso de Inteligencia Artificial</h1>
 
   <div class="video-section mb-4">
-    <img src="assets/images/placeholder-video.png" alt="Video Placeholder" class="img-fluid">
-    <p class="lead">Explora cómo la Inteligencia Artificial está transformando la educación...</p>
+    <img src="assets/images/placeholder-video.png" alt="Video Placeholder" class="img-fluid rounded-lg shadow-md">
+    <p class="lead mt-4 text-gray-600">Explora cómo la Inteligencia Artificial está transformando la educación...</p>
   </div>
 
-  <nav class="nav nav-tabs mb-4">
-    <button class="nav-link" [class.active]="activeTab === 'resultados'" (click)="setActiveTab('resultados')">Resultado de aprendizaje</button>
-    <button class="nav-link" [class.active]="activeTab === 'metodologia'" (click)="setActiveTab('metodologia')">Metodología</button>
-    <button class="nav-link" [class.active]="activeTab === 'perfil'" (click)="setActiveTab('perfil')">Perfil docente autor</button>
-    <button class="nav-link" [class.active]="activeTab === 'criterios'" (click)="setActiveTab('criterios')">Criterios de evaluación</button>
-    <button class="nav-link" [class.active]="activeTab === 'ruta'" (click)="setActiveTab('ruta')">Ruta de aprendizaje</button>
-    <button class="nav-link" [class.active]="activeTab === 'avales'" (click)="setActiveTab('avales')">Avales</button>
+  <nav class="nav nav-tabs mb-4 flex space-x-2">
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded"
+            [class.active]="activeTab === 'resultados'"
+            (click)="setActiveTab('resultados')">Resultado de aprendizaje</button>
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded"
+            [class.active]="activeTab === 'metodologia'"
+            (click)="setActiveTab('metodologia')">Metodología</button>
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded"
+            [class.active]="activeTab === 'perfil'"
+            (click)="setActiveTab('perfil')">Perfil docente autor</button>
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded"
+            [class.active]="activeTab === 'criterios'"
+            (click)="setActiveTab('criterios')">Criterios de evaluación</button>
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded"
+            [class.active]="activeTab === 'ruta'"
+            (click)="setActiveTab('ruta')">Ruta de aprendizaje</button>
+    <button class="nav-link bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded"
+            [class.active]="activeTab === 'avales'"
+            (click)="setActiveTab('avales')">Avales</button>
   </nav>
-  
+
   <div class="tab-content">
-    <div *ngIf="activeTab === 'resultados'" class="tab-pane fade show active">
-      <h2 class="h4">Resultados de aprendizaje</h2>
-      <p>Contenido relacionado a los resultados de aprendizaje...</p>
+    <div *ngIf="activeTab === 'resultados'" class="tab-pane fade show active p-4 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="h4 font-semibold text-teal-600">Resultados de aprendizaje</h2>
+      <p class="text-gray-600">Contenido relacionado a los resultados de aprendizaje...</p>
     </div>
-    <div *ngIf="activeTab === 'metodologia'" class="tab-pane fade show active">
-      <h2 class="h4">Metodología</h2>
-      <p>Contenido relacionado a la metodología...</p>
+    <div *ngIf="activeTab === 'metodologia'" class="tab-pane fade show active p-4 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="h4 font-semibold text-teal-600">Metodología</h2>
+      <p class="text-gray-600">Contenido relacionado a la metodología...</p>
     </div>
-    <div *ngIf="activeTab === 'perfil'" class="tab-pane fade show active">
-      <h2 class="h4">Perfil docente autor</h2>
-      <p>Contenido relacionado al perfil del docente autor...</p>
+    <div *ngIf="activeTab === 'perfil'" class="tab-pane fade show active p-4 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="h4 font-semibold text-teal-600">Perfil docente autor</h2>
+      <p class="text-gray-600">Contenido relacionado al perfil del docente autor...</p>
     </div>
-    <div *ngIf="activeTab === 'criterios'" class="tab-pane fade show active">
-      <h2 class="h4">Criterios de evaluación</h2>
-      <p>Contenido relacionado a los criterios de evaluación...</p>
+    <div *ngIf="activeTab === 'criterios'" class="tab-pane fade show active p-4 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="h4 font-semibold text-teal-600">Criterios de evaluación</h2>
+      <p class="text-gray-600">Contenido relacionado a los criterios de evaluación...</p>
     </div>
-    <div *ngIf="activeTab === 'ruta'" class="tab-pane fade show active">
-      <h2 class="h4">Ruta de aprendizaje</h2>
-      <p>Contenido relacionado a la ruta de aprendizaje...</p>
+    <div *ngIf="activeTab === 'ruta'" class="tab-pane fade show active p-4 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="h4 font-semibold text-teal-600">Ruta de aprendizaje</h2>
+      <p class="text-gray-600">Contenido relacionado a la ruta de aprendizaje...</p>
     </div>
-    <div *ngIf="activeTab === 'avales'" class="tab-pane fade show active">
-      <h2 class="h4">Avales</h2>
-      <p>Contenido relacionado a los avales...</p>
+    <div *ngIf="activeTab === 'avales'" class="tab-pane fade show active p-4 bg-gray-100 rounded-lg shadow-md">
+      <h2 class="h4 font-semibold text-teal-600">Avales</h2>
+      <p class="text-gray-600">Contenido relacionado a los avales...</p>
     </div>
   </div>
 </div>
-
-
-
-  

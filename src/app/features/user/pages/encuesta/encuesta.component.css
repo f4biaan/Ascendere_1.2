@@ -1,0 +1,26 @@
+.encuesta-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .emojis label {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .emojis input[type="radio"] {
+    display: none;
+  }
+  
+  .emojis input[type="radio"]:checked + label {
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+  }
+  
+  .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+  

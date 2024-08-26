@@ -1,28 +1,34 @@
-<div class="list-group">
-  <a
-    (click)="onTypeChange('all')"
-    class="list-group-item list-group-item-action"
-    >Todos los cursos</a
-  >
-  <!-- <a [routerLink]="['/courselist']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action">Todos los cursos</a> -->
-  <a
-    (click)="onTypeChange('misionalidad')"
-    class="list-group-item list-group-item-action"
-    >Misionilidad</a
-  >
-  <a
-    (click)="onTypeChange('innovacion y emprendimiento')"
-    class="list-group-item list-group-item-action"
-    >Innovación y Emprendimiento</a
-  >
-  <a
-    (click)="onTypeChange('educacion digital')"
-    class="list-group-item list-group-item-action"
-    >Educación Digital</a
-  >
-  <a
-    (click)="onTypeChange('investigacion')"
-    class="list-group-item list-group-item-action"
-    >Investigación</a
-  >
-</div>
+<aside class="w-64 h-screen bg-gray-50 border-r border-gray-200">
+  <div class="flex flex-col h-full">
+    <div class="flex items-center justify-center py-6">
+      <img class="h-12" src="/assets/logo.png" alt="Logo" />
+    </div>
+    <nav class="flex-1 px-4 space-y-2 list-group">
+      <a
+        (click)="onTypeChange('all')"
+        class="list-group-item list-group-item-action block py-2.5 px-4 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        >Todos los cursos</a
+      >
+      <a
+        (click)="onTypeChange('misionalidad')"
+        class="list-group-item list-group-item-action block py-2.5 px-4 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        >Misionilidad</a
+      >
+      <a
+        (click)="onTypeChange('innovacion y emprendimiento')"
+        class="list-group-item list-group-item-action block py-2.5 px-4 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        >Innovación y Emprendimiento</a
+      >
+      <a
+        (click)="onTypeChange('educacion digital')"
+        class="list-group-item list-group-item-action block py-2.5 px-4 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        >Educación Digital</a
+      >
+      <a
+        (click)="onTypeChange('investigacion')"
+        class="list-group-item list-group-item-action block py-2.5 px-4 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        >Investigación</a
+      >
+    </nav>
+  </div>
+</aside>
