@@ -145,4 +145,16 @@ export class CoursesService {
         })
       );
   }
+
+  registerOnCourse(courseId: string, emailUser: string, datauser: any) {
+    this._firestore
+      .collection('courses')
+      .doc(courseId)
+      .collection('registered')
+      .doc(emailUser)
+      .set({
+        ...datauser,
+        email: emailUser,
+      });
+  }
 }

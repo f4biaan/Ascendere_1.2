@@ -6,7 +6,8 @@
         <img src="assets/images/img.jpg" alt="Logo Academia Ascendere" class="logo">
       </div>
       <h2 class="card-title">INICIAR SESIÓN</h2>
-      <form (ngSubmit)="onLogin()">
+      <form>
+      <!-- <form (ngSubmit)="onLogin()"> -->
         <div class="form-group">
           <label for="username">Usuario</label>
           <input type="text" class="form-control" id="username" placeholder="Usuario" required>
@@ -15,16 +16,19 @@
           <label for="email">Email</label>
           <input type="email" class="form-control" id="email" placeholder="Email" required>
         </div>
-        <button (click)="onLogin()" type="submit" class="btn btn-primary btn-block">INGRESAR</button>
+        <button type="submit" class="btn btn-primary btn-block">INGRESAR</button>
+        <!-- <button (click)="onLogin()" type="submit" class="btn btn-primary btn-block">INGRESAR</button> -->
         <div class="or-divider">O INICIA CON</div>
         <div class="social-buttons">
           <!-- Botón de Microsoft -->
-          <button type="button" class="btn btn-microsoft"><i class="fab fa-microsoft"></i></button>
+          <!-- <button type="button" class="btn btn-microsoft"><i class="fab fa-microsoft"></i></button> -->
+          <!-- Botón de Google -->
+          <button type="button" class="btn btn-microsoft" (click)="loginGoogle()"><i class="fab fa-google"></i></button>
         </div>
       </form>
-      <div class="register-link">
+      <!-- <div class="register-link">
         ¿NECESITAS UNA CUENTA? <a href="#">REGISTRARSE</a>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

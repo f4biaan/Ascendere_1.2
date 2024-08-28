@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,13 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export default class LoginComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
-  onLogin() {
-    // Redirige al usuario al componente CourseList
+  /* onLogin() {
     this.router.navigate(['/courselist']);
+  }
+ */
+  loginGoogle() {
+    this.authService.loginGoogle();
   }
 }
