@@ -8,7 +8,8 @@
       <path class="circle red"
         d="M18 2.0845
            a 15.9155 15.9155 0 0 1 0 31.831
-           a 15.9155 15.9155 0 0 1 0 -31.831"/>
+           a 15.9155 15.9155 0 0 1 0 -31.831"
+        [attr.stroke-dasharray]="porcentajeProgreso + ', 100'"/>
       <path class="circle yellow"
         d="M18 5.0845
            a 12.9155 12.9155 0 0 1 0 25.831
@@ -19,12 +20,12 @@
            a 9.9155 9.9155 0 0 1 0 -19.831"/>
     </svg>
     <div class="absolute text-xl font-bold text-primary dark:text-primary-light" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
-      90%
+      {{ porcentajeProgreso | number: '1.0-0' }}%
     </div>
   </div>
   <div class="percentages text-gray-700 dark:text-gray-400 ml-10">
-    <div>Meta diaria: 75%</div>
-    <div>Retención: 50%</div>
-    <div>Progreso del curso: 90%</div>
+    <div>Meta diaria: {{ metaDiaria / 60 }} minutos</div>
+    <div>Retención: {{ retention }}%</div>
+    <div>Progreso del curso: {{ courseProgress }}%</div>
   </div>
 </div>
