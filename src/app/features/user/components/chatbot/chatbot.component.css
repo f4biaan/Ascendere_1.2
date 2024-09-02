@@ -1,0 +1,25 @@
+.chatbot-container {
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .chatbot-body {
+    background-color: #f9f9f9;
+    padding: 0;
+    height: calc(100% - 56px); 
+  }
+  
+  .chatbot-icon img {
+    width: 48px;
+    height: 48px;
+  }
+  

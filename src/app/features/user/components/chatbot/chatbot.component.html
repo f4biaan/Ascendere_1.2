@@ -1,0 +1,15 @@
+<div class="chatbot-icon fixed bottom-4 right-4 cursor-pointer" (click)="toggleChat()">
+    <!-- Icono del Chatbot, puedes reemplazar el src con cualquier ícono que prefieras -->
+    <img src="src/assets/images/IMG.jpg" alt="Chatbot" class="w-12 h-12">
+  </div>
+  
+  <div class="chatbot-container fixed bottom-16 right-4 bg-white rounded-lg shadow-lg w-96 h-96" *ngIf="isChatOpen">
+    <div class="chatbot-header bg-teal-500 text-white p-4 rounded-t-lg flex justify-between items-center">
+      <h3 class="text-lg font-semibold">Chatbot Ascendere</h3>
+      <button (click)="toggleChat()">✖</button>
+    </div>
+    <div class="chatbot-body p-4 h-full">
+      <iframe src="http://localhost:8080" class="w-full h-full border-0"></iframe>
+    </div>
+  </div>
+  

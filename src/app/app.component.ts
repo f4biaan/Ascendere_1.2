@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { ChatbotComponent } from './features/user/components/chatbot/chatbot.component';
 import { filter } from 'rxjs';
 import { Router, NavigationEnd, Event } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, SidebarComponent, CommonModule],
+  imports: [RouterOutlet, HeaderComponent, SidebarComponent, CommonModule,ChatbotComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

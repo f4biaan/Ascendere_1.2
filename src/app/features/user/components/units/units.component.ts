@@ -1,14 +1,29 @@
-import { Component, Input, Signal } from '@angular/core';
-import { Unit } from '../../../../core/interfaces/course';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-units',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './units.component.html',
-  styleUrl: './units.component.css',
+  styleUrls: ['./units.component.css']
 })
 export class UnitsComponent {
-  @Input({ required: true }) dataUnit!: Signal<Unit | undefined>;
+navigateTo(arg0: string) {
+throw new Error('Method not implemented.');
+}
+  activeTab: string = 'unidad1'; // Unidad por defecto
+  sections: { [key: string]: boolean } = {
+    objetivos: true,
+    contenidos: false,
+    conceptos: false,
+    actividades: false,
+    evaluacion: false,
+  };
+
+  setActiveTab(tab: string) {
+    this.activeTab = tab;
+  }
+
+  toggleSection(section: string) {
+    this.sections[section] = !this.sections[section];
+  }
 }

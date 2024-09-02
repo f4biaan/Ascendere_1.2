@@ -5,5 +5,7 @@
   <app-sidebar *ngIf="showSidebar"></app-sidebar> <!-- Mostrar Sidebar solo si showSidebar es true -->
   <div class="content">
     <router-outlet></router-outlet>
+    <app-chatbot></app-chatbot> <!-- Chatbot siempre presente -->
+    
   </div>
 </div>
