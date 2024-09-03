@@ -1,4 +1,97 @@
 <!-- <p>units works!</p> -->
 <!--  -->
 
-<pre>{{ dataUnit() | json }}</pre>
+<!-- <pre>{{ dataUnit() | json }}</pre> -->
+
+@if (dataUnit()) {
+<div class="unidad-container">
+  <div class="unidad-content">
+    <h1 class="display-5">Contenido de {{ dataUnit()?.headerName }}</h1>
+
+    <div class="video-section mb-4">
+      <img
+        [src]="dataUnit()?.video"
+        alt="Video Placeholder"
+        class="img-fluid"
+      />
+      <p class="lead">
+        Descripción del contenido de {{ dataUnit()?.headerName }}...
+      </p>
+    </div>
+
+    <div class="unidad-section mb-4">
+      <h2 (click)="toggleSection('objetivos')" class="h4">
+        Objetivo de la unidad
+      </h2>
+      <div *ngIf="sections['objetivos']" class="collapse show">
+        <p>Descripción del objetivo de {{ dataUnit()?.headerName }}...</p>
+        <p>{{ dataUnit()?.unitObjective }}</p>
+      </div>
+    </div>
+
+    <div class="unidad-section mb-4">
+      <h2 (click)="toggleSection('contenidos')" class="h4">
+        Contenidos por abordar
+      </h2>
+      <div
+        *ngIf="sections['contenidos']"
+        class="collapse"
+        [class.show]="sections['contenidos']"
+      >
+        <p>hola</p>
+        <p>Descripción de los contenidos de {{ dataUnit()?.headerName }}...</p>
+        <p>{{ dataUnit()?.contents }}</p>
+      </div>
+    </div>
+
+    <div class="unidad-section mb-4">
+      <h2 (click)="toggleSection('conceptos')" class="h4">
+        Conceptos básicos: Inteligencia artificial
+      </h2>
+      <div
+        *ngIf="sections['conceptos']"
+        class="collapse"
+        [class.show]="sections['conceptos']"
+      >
+        <p>Descripción de los conceptos de {{ dataUnit()?.headerName }}...</p>
+      </div>
+    </div>
+
+    <div class="unidad-section mb-4">
+      <h2 (click)="toggleSection('actividades')" class="h4">
+        Actividades de aprendizaje práctico
+      </h2>
+      <!-- <div
+        *ngIf="sections['actividades']"
+        class="collapse"
+        [class.show]="sections['actividades']"
+      >
+        <p>Descripción de las actividades de {{ dataUnit()?.headerName }}...</p>
+        <p>{{ dataUnit()?.activity }}</p>
+      </div> -->
+
+      @if (sections['actividades']) {
+      <div class="collapse" [class.show]="sections['actividades']">
+        <p>Descripción de las actividades de {{ dataUnit()?.headerName }}...</p>
+        <p>{{ dataUnit()?.activity }}</p>
+      </div>
+      }
+    </div>
+
+    <div class="unidad-section">
+      <h2 (click)="toggleSection('evaluacion')" class="h4">Evaluación</h2>
+      <div
+        *ngIf="sections['evaluacion']"
+        class="collapse"
+        [class.show]="sections['evaluacion']"
+      >
+        <p>Descripción de la evaluación de {{ dataUnit()?.headerName }}...</p>
+      </div>
+    </div>
+  </div>
+</div>
+} @else {
+<div class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+}

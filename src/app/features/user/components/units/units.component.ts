@@ -11,4 +11,13 @@ import { CommonModule } from '@angular/common';
 })
 export class UnitsComponent {
   @Input({ required: true }) dataUnit!: Signal<Unit | undefined>;
+  sections: { [key: string]: boolean } = {};
+
+  setActiveTab(tab: string) {
+    this.sections = {}; // Reinicia las secciones abiertas al cambiar de unidad
+  }
+
+  toggleSection(section: string) {
+    this.sections[section] = !this.sections[section];
+  }
 }

@@ -146,15 +146,29 @@ export class CoursesService {
       );
   }
 
-  registerOnCourse(courseId: string, emailUser: string, datauser: any) {
+  async registerOrEnterOnCourse(
+    courseId: string,
+    datauser: any
+  ): Promise<void> {
     this._firestore
       .collection('courses')
       .doc(courseId)
       .collection('registered')
-      .doc(emailUser)
-      .set({
-        ...datauser,
-        email: emailUser,
+      .doc(datauser.mail)
+      .snapshotChanges()
+      .subscribe((data) => {
+        if (data.payload.exists) {
+          return;
+        } else {
+          return this._firestore
+            .collection('courses')
+            .doc(courseId)
+            .collection('registered')
+            .doc(datauser.mail)
+            .set({ ...datauser, dateRegistered: new Date() });
+        }
       });
   }
+
+  // async saveMetaDiaria() {}
 }

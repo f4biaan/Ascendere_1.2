@@ -27,7 +27,7 @@ export class UserService {
     return this._userHome$.asObservable();
   }
 
-  getAllStudent() {
+  /* getAllStudent() {
     return this.firestore
       .collection('users', (ref) => ref.where('role', '==', 'estudiante'))
       .snapshotChanges()
@@ -40,7 +40,7 @@ export class UserService {
           })
         )
       );
-  }
+  } */
 
   getUserById(id: string) {
     return this.firestore

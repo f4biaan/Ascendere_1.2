@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { CoursesService } from '../../../../core/services/courses.service';
 import { Course } from '../../../../core/interfaces/course';
 import { SidebarComponent } from '../../../../shared/components/sidebar/sidebar.component';
+import { AuthService } from '../../../../core/services/auth.service';
+import { UserService } from '../../../../core/services/user.service';
+import { User } from '../../../../core/interfaces/user';
 
 @Component({
   selector: 'app-course-list',
@@ -13,13 +16,15 @@ import { SidebarComponent } from '../../../../shared/components/sidebar/sidebar.
   imports: [CommonModule, SidebarComponent],
 })
 export default class CourseListComponent implements OnInit {
+  user!: User | null;
   showMetaDialog: boolean = true; // Mostrar el cuadro de diálogo al iniciar
   metaDiaria: number | null = null; // Meta diaria seleccionada
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    public _coursesService: CoursesService
+    public _coursesService: CoursesService,
+    private _authService: AuthService
   ) {
     this.route.queryParams.subscribe((params) => {
       const filter = params['filter'];
@@ -40,6 +45,10 @@ export default class CourseListComponent implements OnInit {
       this.metaDiaria = parseInt(storedMeta, 10);
       this.showMetaDialog = false; // Si ya tiene meta, no mostrar el diálogo
     }
+
+    this._authService.getCurrentUser().subscribe((user) => {
+      this.user = user;
+    });
   }
 
   setMetaDiaria(minutos: number): void {
@@ -49,8 +58,14 @@ export default class CourseListComponent implements OnInit {
   }
 
   enterCourse(courseId: string) {
-    this.router.navigate([`course/${courseId}/unit`]);
+    this._coursesService
+      .registerOrEnterOnCourse(courseId, this.user)
+      .then(() => {
+        this.router.navigate([`course/${courseId}/unit`]);
+      });
   }
+
+  saveMetaDiaria() {}
 
   encodeId(id: string) {
     return btoa(id);
