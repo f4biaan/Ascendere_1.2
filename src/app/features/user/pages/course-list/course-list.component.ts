@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CoursesService } from '../../../../core/services/courses.service';
@@ -7,6 +7,8 @@ import { SidebarComponent } from '../../../../shared/components/sidebar/sidebar.
 import { AuthService } from '../../../../core/services/auth.service';
 import { UserService } from '../../../../core/services/user.service';
 import { User } from '../../../../core/interfaces/user';
+import { DailyGoalService } from '../../../../core/services/daily-goal.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-course-list',
@@ -17,14 +19,15 @@ import { User } from '../../../../core/interfaces/user';
 })
 export default class CourseListComponent implements OnInit {
   user!: User | null;
-  showMetaDialog: boolean = true; // Mostrar el cuadro de diálogo al iniciar
+  showMetaDialog: boolean = false; // Mostrar el cuadro de diálogo al iniciar
   metaDiaria: number | null = null; // Meta diaria seleccionada
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     public _coursesService: CoursesService,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _dailyGoalService: DailyGoalService
   ) {
     this.route.queryParams.subscribe((params) => {
       const filter = params['filter'];
@@ -39,12 +42,19 @@ export default class CourseListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Podrías cargar la meta diaria desde almacenamiento local si ya está guardada
     const storedMeta = localStorage.getItem('metaDiaria');
-    if (storedMeta) {
-      this.metaDiaria = parseInt(storedMeta, 10);
-      this.showMetaDialog = false; // Si ya tiene meta, no mostrar el diálogo
-    }
+    this._dailyGoalService.getDailyGoal().subscribe((goal) => {
+      if (goal) {
+        // this.metaDiaria = parseInt(storedMeta, 10);
+        this.metaDiaria = goal;
+        if (storedMeta != goal.toString()) {
+          localStorage.setItem('metaDiaria', goal.toString());
+        }
+        this.showMetaDialog = false; // Si ya tiene meta, no mostrar el diálogo
+      } else {
+        this.showMetaDialog = true; // Si no tiene meta, mostrar el diálogo
+      }
+    });
 
     this._authService.getCurrentUser().subscribe((user) => {
       this.user = user;
@@ -54,6 +64,14 @@ export default class CourseListComponent implements OnInit {
   setMetaDiaria(minutos: number): void {
     this.metaDiaria = minutos;
     localStorage.setItem('metaDiaria', minutos.toString()); // Guardar la meta en el almacenamiento local
+    this._dailyGoalService.saveDailyGoal(minutos).then(
+      () => {
+        console.log('Meta diaria guardada');
+      },
+      (error) => {
+        console.error('Error al guardar la meta diaria', error);
+      }
+    ); // Guardar la meta en la base de datos
     this.showMetaDialog = false; // Ocultar el cuadro de diálogo
   }
 

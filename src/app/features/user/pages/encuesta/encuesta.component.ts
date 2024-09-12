@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './encuesta.component.html',
   styleUrls: ['./encuesta.component.css']
 })
-export class EncuestaComponent {
+export default class EncuestaComponent {
   respuestas: number[] = [];
 
   setRespuesta(pregunta: number, valor: number) {

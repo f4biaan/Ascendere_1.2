@@ -169,6 +169,4 @@ export class CoursesService {
         }
       });
   }
-
-  // async saveMetaDiaria() {}
 }

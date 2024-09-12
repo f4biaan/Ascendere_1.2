@@ -39,6 +39,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./core/routes/course.routes').then((m) => m.COURSE_ROUTES),
   },
+  {
+    path: 'encuesta',
+    loadComponent: () =>
+      import('./features/user/pages/encuesta/encuesta.component'),
+  },
   // admin routes
   {
     path: 'admin',

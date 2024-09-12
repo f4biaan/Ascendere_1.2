@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { filter } from 'rxjs';
 import { Router, NavigationEnd, Event } from '@angular/router';
+import { UserActivityService } from './core/services/user-activity.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { Router, NavigationEnd, Event } from '@angular/router';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  private _userActivityService = inject(UserActivityService);
   title = 'Ascendere1.2';
   showHeader: boolean = true;
   showSidebar: boolean = false;
